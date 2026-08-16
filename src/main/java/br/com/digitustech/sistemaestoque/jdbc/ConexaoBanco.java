@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  */
 public class ConexaoBanco {
     
-    private final String url = "jdbc:mysql://localhost:3306/sistemaestoque?useSSL=false&serverTimezone=UTC";
+    private final String url = "jdbc:mysql://localhost:3306/sistemaestoque?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";
     private final String usuario = "root";
     private final String senha = "root";
     
