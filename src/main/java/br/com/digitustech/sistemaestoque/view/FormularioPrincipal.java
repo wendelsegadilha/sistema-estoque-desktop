@@ -41,8 +41,11 @@ public class FormularioPrincipal extends javax.swing.JFrame {
         };
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
@@ -72,14 +75,32 @@ public class FormularioPrincipal extends javax.swing.JFrame {
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/digitustech/sistemaestoque/imagens/clientes.png"))); // NOI18N
         jMenu2.setText("CLIENTES");
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem1.setText("MANUTENÇÃO DE CLIENTES");
+        jMenuItem1.addActionListener(this::jMenuItem1ActionPerformed);
+        jMenu2.add(jMenuItem1);
+
         jMenuBar1.add(jMenu2);
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/digitustech/sistemaestoque/imagens/funcionarios.png"))); // NOI18N
         jMenu3.setText("FUNCIONARIOS");
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem2.setText("MANUTENÇÃO DE FUNCIONARIOS");
+        jMenuItem2.addActionListener(this::jMenuItem2ActionPerformed);
+        jMenu3.add(jMenuItem2);
+
         jMenuBar1.add(jMenu3);
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/digitustech/sistemaestoque/imagens/fornecedores.png"))); // NOI18N
         jMenu4.setText("FORNECEDORES");
+
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem3.setText("MANUTENÇÃO DE FORNECEDORES");
+        jMenuItem3.addActionListener(this::jMenuItem3ActionPerformed);
+        jMenu4.add(jMenuItem3);
+
         jMenuBar1.add(jMenu4);
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/digitustech/sistemaestoque/imagens/produtos.png"))); // NOI18N
@@ -121,6 +142,24 @@ public class FormularioPrincipal extends javax.swing.JFrame {
         this.setExtendedState(this.MAXIMIZED_BOTH);
     }//GEN-LAST:event_formWindowActivated
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        FormularioFornecedores formFornecedores = new FormularioFornecedores();
+        formFornecedores.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        FormularioClientes formClientes = new FormularioClientes();
+        formClientes.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        FormularioFuncionarios formFuncionarios = new FormularioFuncionarios();
+        formFuncionarios.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -155,6 +194,9 @@ public class FormularioPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JDesktopPane painel_desktop;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,6 +2,8 @@ package br.com.digitustech.sistemaestoque.dao;
 
 import br.com.digitustech.sistemaestoque.jdbc.ConexaoBanco;
 import br.com.digitustech.sistemaestoque.model.Funcionario;
+import br.com.digitustech.sistemaestoque.view.FormularioLogin;
+import br.com.digitustech.sistemaestoque.view.FormularioPrincipal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -187,6 +189,27 @@ public class FuncionarioDao {
             JOptionPane.showMessageDialog(null, "Funcionario excluído com sucesso");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao excluir funcionario. Erro: " + ex);
+        }
+    }
+     
+     public void realizarLogin(String email, String senha) {
+        try {
+            String sql = "SELECT * FROM tb_funcionarios WHERE email = ? and senha = ?;";
+            
+            // preparar o inserção do objeto
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            stmt.setString(1, email);
+            stmt.setString(2, senha);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(null, "Seja bem-vindo ao sistema!");
+                FormularioPrincipal pf = new FormularioPrincipal();
+                pf.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Dados inválidos!");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao bucar funcionario. Erro: " + ex);
         }
     }
 
