@@ -175,4 +175,37 @@ public class FornecedorDao {
         }
     }
 
+    public Fornecedor buscarPorId(int codigoFornecedor) {
+        try {
+            String sql = "SELECT id, nome, cnpj, email, telefone, celular, cep, endereco, numero, complemento, bairro, cidade, estado "
+            + "FROM tb_fornecedores WHERE id = ?";
+            
+            // preparar o inserção do objeto
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            stmt.setInt(1, codigoFornecedor);
+            ResultSet rs = stmt.executeQuery();
+            Fornecedor fornecedor = null;
+            if (rs.next()) {
+                fornecedor = new Fornecedor();
+                fornecedor.setId(rs.getInt("id"));
+                fornecedor.setNome(rs.getString("nome"));
+                fornecedor.setCnpj(rs.getString("cnpj"));
+                fornecedor.setEmail(rs.getString("email"));
+                fornecedor.setTelefone(rs.getString("telefone"));
+                fornecedor.setCelular(rs.getString("celular"));
+                fornecedor.setCep(rs.getString("cep"));
+                fornecedor.setEndereco(rs.getString("endereco"));
+                fornecedor.setNumero(rs.getInt("numero"));
+                fornecedor.setComplemento(rs.getString("complemento"));
+                fornecedor.setBairro(rs.getString("bairro"));
+                fornecedor.setCidade(rs.getString("cidade"));
+                fornecedor.setEstado(rs.getString("estado"));
+            }
+            return fornecedor;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao bucar fornecedor. Erro: " + ex);
+        }
+        return null;
+    }
+
 }

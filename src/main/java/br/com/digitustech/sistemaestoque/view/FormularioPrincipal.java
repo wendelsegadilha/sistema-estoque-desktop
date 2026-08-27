@@ -47,6 +47,7 @@ public class FormularioPrincipal extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
@@ -105,6 +106,12 @@ public class FormularioPrincipal extends javax.swing.JFrame {
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/digitustech/sistemaestoque/imagens/produtos.png"))); // NOI18N
         jMenu5.setText("PRODUTOS");
+
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem4.setText("MANUTENÇÃO DE PRODUTOS");
+        jMenuItem4.addActionListener(this::jMenuItem4ActionPerformed);
+        jMenu5.add(jMenuItem4);
+
         jMenuBar1.add(jMenu5);
 
         jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/digitustech/sistemaestoque/imagens/vendas_1.png"))); // NOI18N
@@ -160,6 +167,12 @@ public class FormularioPrincipal extends javax.swing.JFrame {
         formFuncionarios.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        FormularioProdutos fp = new FormularioProdutos();
+        fp.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -197,6 +210,7 @@ public class FormularioPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JDesktopPane painel_desktop;
     // End of variables declaration//GEN-END:variables
 }
