@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import javax.swing.JOptionPane;
 
 /**
@@ -145,6 +146,25 @@ public class ProdutoDao {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao excluir produto. Erro: " + ex);
         }
+    }
+
+    public void atualizarQtdEstoque(int codigoProduto, int quantidade) {
+         try (conexao) {
+            // montar sql
+            String sql = "UPDATE tb_produtos SET qtd_estoque = ? WHERE id = ?;";
+            // preparar o inserção do objeto
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            stmt.setInt(1, quantidade);
+            stmt.setInt(2, codigoProduto);
+            // executar o sql
+            stmt.execute();
+            // notifica sucesso
+            JOptionPane.showMessageDialog(null, "Estoque atualizado com sucesso");
+        } catch (SQLException ex) {
+            // notifica falha
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar estoque. Erro: " + ex);
+        }
+         
     }
 
 }
